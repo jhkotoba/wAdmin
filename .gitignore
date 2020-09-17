@@ -2,6 +2,7 @@
 
 .mvn/wrapper
 *.yml
+*.properties
 
 *.class
 *.dll

@@ -20,5 +20,10 @@ public class WCommonConrtroller {
 	public Flux<? extends Map<String, Object>> getMenuCodeList(ServerHttpRequest request){		
 		return wCommonService.getMenuCodeList(request);
 	}
+	
+	@GetMapping(value = "/api/admin/getPageCodeList", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Flux<? extends Map<String, Object>> getPageCodeList(ServerHttpRequest request){		
+		return wCommonService.getPageCodeList(request);
+	}
 
 }

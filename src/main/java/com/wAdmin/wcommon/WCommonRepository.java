@@ -26,7 +26,7 @@ public class WCommonRepository {
 		String menuUprCd = params.getFirst("menuUprCd");
 		String mduTpCd = params.getFirst("mduTpCd");
 		
-		StringBuilder sql = new StringBuilder("SELECT * FROM MENU_CODE WHERE 1=1");
+		StringBuilder sql = new StringBuilder("SELECT MENU_CD, MENU_NM, MENU_UPR_CD, PAGE_CD, MENU_LV, ODR_NO, REG_DTTM, MOD_DTTM FROM MENU WHERE 1=1");
 		
 		if(Objects.nonNull(mduTpCd)) {
 			sql.append(" AND MDU_TP_CD = '").append(mduTpCd).append("'");
@@ -38,6 +38,24 @@ public class WCommonRepository {
 			sql.append(" AND MENU_UPR_CD = '").append(menuUprCd).append("'");
 		}
 		sql.append(" ORDER BY ODR_NO");
+		
+		return client.execute(sql.toString()).fetch().all().map(Utils::converterCamelCase);
+	}
+	
+	
+	public Flux<? extends Map<String, Object>> selectPageCodeList(MultiValueMap<String, String> params){
+		
+		String pageCd = params.getFirst("pageCd");		
+		String mduTpCd = params.getFirst("mduTpCd");
+		
+		StringBuilder sql = new StringBuilder("SELECT PAGE_CD, PAGE_NM, PAGE_PATH, PAGE_FILE, REG_DTTM, MOD_DTTM FROM PAGE WHERE 1=1");
+		
+		if(Objects.nonNull(mduTpCd)) {
+			sql.append(" AND MDU_TP_CD = '").append(mduTpCd).append("'");
+		}		
+		if(Objects.nonNull(pageCd)) {
+			sql.append(" AND PAGE_CD = '").append(pageCd).append("'");
+		}
 		
 		return client.execute(sql.toString()).fetch().all().map(Utils::converterCamelCase);
 	}

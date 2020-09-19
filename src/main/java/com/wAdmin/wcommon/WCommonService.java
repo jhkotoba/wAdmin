@@ -15,7 +15,10 @@ public class WCommonService {
 	private WCommonRepository wCommonRepository;
 	
 	public Flux<? extends Map<String, Object>> getMenuCodeList(ServerHttpRequest request){
-		return wCommonRepository.selectMenuCodeList(request.getQueryParams());
-		
+		return wCommonRepository.selectMenuCodeList(request.getQueryParams());		
+	}
+	
+	public Flux<? extends Map<String, Object>> getPageCodeList(ServerHttpRequest request){
+		return wCommonRepository.selectPageCodeList(request.getQueryParams());		
 	}
 }

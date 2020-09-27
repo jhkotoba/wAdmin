@@ -14,7 +14,7 @@ import reactor.core.publisher.Flux;
 public class WCommonConrtroller {
 	
 	@Autowired
-	WCommonService wCommonService;	
+	private WCommonService wCommonService;	
 	
 	@GetMapping(value = "/api/admin/getMenuCodeList", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Flux<? extends Map<String, Object>> getMenuCodeList(ServerHttpRequest request){		
@@ -24,6 +24,11 @@ public class WCommonConrtroller {
 	@GetMapping(value = "/api/admin/getPageCodeList", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Flux<? extends Map<String, Object>> getPageCodeList(ServerHttpRequest request){		
 		return wCommonService.getPageCodeList(request);
+	}
+	
+	@GetMapping(value = "/api/admin/getCodeList", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Flux<? extends Map<String, Object>> getCodeList(ServerHttpRequest request){		
+		return wCommonService.getCodeList(request);
 	}
 
 }

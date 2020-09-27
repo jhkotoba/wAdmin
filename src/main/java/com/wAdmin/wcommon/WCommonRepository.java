@@ -60,6 +60,23 @@ public class WCommonRepository {
 		return client.execute(sql.toString()).fetch().all().map(Utils::converterCamelCase);
 	}
 	
+	public Flux<? extends Map<String, Object>> selectCodeList(MultiValueMap<String, String> params){
+		
+		String grpCode = params.getFirst("grpCode");		
+		String uprCode = params.getFirst("uprCode");
+		
+		StringBuilder sql = new StringBuilder("SELECT GRP_CODE, GRP_CODE_NM, UPR_CODE, CODE, CODE_NM FROM CODE WHERE 1=1");
+		
+		if(Objects.nonNull(grpCode)) {
+			sql.append(" AND GRP_CODE = '").append(grpCode).append("'");
+		}		
+		if(Objects.nonNull(uprCode)) {
+			sql.append(" AND URP_CODE = '").append(uprCode).append("'");
+		}
+		
+		return client.execute(sql.toString()).fetch().all().map(Utils::converterCamelCase);
+	}
+	
 	
 
 }

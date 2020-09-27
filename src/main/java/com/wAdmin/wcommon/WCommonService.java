@@ -21,4 +21,8 @@ public class WCommonService {
 	public Flux<? extends Map<String, Object>> getPageCodeList(ServerHttpRequest request){
 		return wCommonRepository.selectPageCodeList(request.getQueryParams());		
 	}
+	
+	public Flux<? extends Map<String, Object>> getCodeList(ServerHttpRequest request){
+		return wCommonRepository.selectCodeList(request.getQueryParams());		
+	}
 }

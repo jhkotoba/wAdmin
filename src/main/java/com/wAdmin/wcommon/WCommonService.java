@@ -14,14 +14,29 @@ public class WCommonService {
 	@Autowired
 	private WCommonRepository wCommonRepository;
 	
+	/**
+	 * 메뉴코드 조회 API
+	 * @param request
+	 * @return
+	 */
 	public Flux<? extends Map<String, Object>> getMenuCodeList(ServerHttpRequest request){
 		return wCommonRepository.selectMenuCodeList(request.getQueryParams());		
 	}
 	
+	/**
+	 * 페이지코드 조회 API
+	 * @param request
+	 * @return
+	 */
 	public Flux<? extends Map<String, Object>> getPageCodeList(ServerHttpRequest request){
 		return wCommonRepository.selectPageCodeList(request.getQueryParams());		
 	}
 	
+	/**
+	 * 공통코드 조회 API
+	 * @param request
+	 * @return
+	 */
 	public Flux<? extends Map<String, Object>> getCodeList(ServerHttpRequest request){
 		return wCommonRepository.selectCodeList(request.getQueryParams());		
 	}

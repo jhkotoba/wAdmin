@@ -20,6 +20,11 @@ public class WCommonRepository {
 		this.client = databaseClient;
 	}
 	
+	/**
+	 * 메뉴코드 조회 API
+	 * @param params
+	 * @return
+	 */
 	public Flux<? extends Map<String, Object>> selectMenuCodeList(MultiValueMap<String, String> params){
 		
 		String menuCd = params.getFirst("menuCd");
@@ -42,7 +47,11 @@ public class WCommonRepository {
 		return client.execute(sql.toString()).fetch().all().map(Utils::converterCamelCase);
 	}
 	
-	
+	/**
+	 * 페이지코드 조회 API
+	 * @param params
+	 * @return
+	 */
 	public Flux<? extends Map<String, Object>> selectPageCodeList(MultiValueMap<String, String> params){
 		
 		String pageCd = params.getFirst("pageCd");		
@@ -60,6 +69,11 @@ public class WCommonRepository {
 		return client.execute(sql.toString()).fetch().all().map(Utils::converterCamelCase);
 	}
 	
+	/**
+	 * 공통코드 조회 API
+	 * @param params
+	 * @return
+	 */
 	public Flux<? extends Map<String, Object>> selectCodeList(MultiValueMap<String, String> params){
 		
 		String grpCode = params.getFirst("grpCode");		

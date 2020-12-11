@@ -24,22 +24,14 @@ public class CodeRepository {
 	 * @param params	
 	 * @return
 	 */
-	public Flux<?> selectMenuCodeList(MultiValueMap<String, String> params){		
+	public Flux<?> selectMenuCodeList(MultiValueMap<String, String> params){
 		
-		String menuCd = params.getFirst("menuCd");
-		String menuUprCd = params.getFirst("menuUprCd");
 		String mduTpCd = params.getFirst("mduTpCd");
 		
-		StringBuilder sql = new StringBuilder("SELECT MENU_CD, MENU_NM, MENU_UPR_CD, PAGE_CD, MENU_LV, ODR_NO, REG_DTTM, MOD_DTTM FROM MENU WHERE 1=1");
+		StringBuilder sql = new StringBuilder("SELECT MENU_URL, MENU_NM, MENU_LV, ODR_NO FROM MENU WHERE 1=1");
 		
 		if(Objects.nonNull(mduTpCd)) {
 			sql.append(" AND MDU_TP_CD = '").append(mduTpCd).append("'");
-		}		
-		if(Objects.nonNull(menuCd)) {
-			sql.append(" AND MENU_CD = '").append(menuCd).append("'");
-		}		
-		if(Objects.nonNull(menuUprCd)) {
-			sql.append(" AND MENU_UPR_CD = '").append(menuUprCd).append("'");
 		}
 		sql.append(" ORDER BY ODR_NO");
 		

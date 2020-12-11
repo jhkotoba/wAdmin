@@ -20,6 +20,11 @@ public class CodeHandler {
 	@Autowired
 	private CodeService codeService;
 	
+	/**
+	 * 메뉴코드 조회
+	 * @param request
+	 * @return
+	 */
 	public Mono<ServerResponse> getMenuCodeList(ServerRequest request){
 		
 		ResponseModel<List<?>> result = new ResponseModel<List<?>>();
@@ -41,6 +46,11 @@ public class CodeHandler {
 			});
 	}
 	
+	/**
+	 * 공통코드 조회
+	 * @param request
+	 * @return
+	 */
 	public Mono<ServerResponse> getCmmCodeList(ServerRequest request){
 		
 		ResponseModel<List<?>> result = new ResponseModel<List<?>>();

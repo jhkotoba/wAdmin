@@ -52,12 +52,12 @@ public class CodeRepository {
 		StringBuilder sql = new StringBuilder("SELECT GRP_CODE, GRP_CODE_NM, UPR_CODE, CODE, CODE_NM FROM CODE WHERE 1=1");
 		
 		if(Objects.nonNull(grpCode)) {
-			sql.append(" AND GRP_CODE = '").append(grpCode).append("'");
+			sql.append(" AND GRP_CODE IN (").append("'").append(grpCode.replaceAll(",", "','")).append("')");
 		}		
 		if(Objects.nonNull(uprCode)) {
 			sql.append(" AND URP_CODE = '").append(uprCode).append("'");
 		}
-		
+		System.out.println(sql.toString());
 		return client.sql(sql.toString()).fetch().all().map(Utils::converterCamelCase);
 	}
 

@@ -18,7 +18,7 @@ public class CodeRouter {
 			.route(RequestPredicates.GET("/api/admin/getMenuCodeList")
 				.and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), codeHandler::getMenuCodeList)
 			//공통코드 조회
-			.andRoute(RequestPredicates.GET("/api/admin/getCmmCodeList")
-				.and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), codeHandler::getCmmCodeList);
+			.andRoute(RequestPredicates.GET("/api/admin/getCodeList")
+				.and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), codeHandler::getCodeList);
 	}
 }

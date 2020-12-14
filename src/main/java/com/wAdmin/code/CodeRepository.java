@@ -44,7 +44,7 @@ public class CodeRepository {
 	 * @param params
 	 * @return
 	 */
-	public Flux<?> selectCmmCodeList(MultiValueMap<String, String> params){
+	public Flux<?> selectCodeList(MultiValueMap<String, String> params){
 		
 		String grpCode = params.getFirst("grpCode");		
 		String uprCode = params.getFirst("uprCode");

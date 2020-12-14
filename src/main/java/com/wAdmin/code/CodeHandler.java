@@ -51,11 +51,11 @@ public class CodeHandler {
 	 * @param request
 	 * @return
 	 */
-	public Mono<ServerResponse> getCmmCodeList(ServerRequest request){
+	public Mono<ServerResponse> getCodeList(ServerRequest request){
 		
 		ResponseModel<List<?>> result = new ResponseModel<List<?>>();
 		
-		return codeService.getCmmCodeList(request).collectList()
+		return codeService.getCodeList(request).collectList()
 			.flatMap(fm -> {
 				//응답
 				result.setData(fm);

@@ -32,9 +32,9 @@ public class CodeService {
 	 * @param request	 
 	 * @return
 	 */
-	public Flux<?> getCmmCodeList(ServerRequest request){
+	public Flux<?> getCodeList(ServerRequest request){
 		try {
-			return codeRepository.selectCmmCodeList(request.queryParams());
+			return codeRepository.selectCodeList(request.queryParams());
 		}catch (Exception e) {
 			return Flux.error(new RuntimeException(Constant.CODE_REPOSITORY_ERROR, e));
 		}

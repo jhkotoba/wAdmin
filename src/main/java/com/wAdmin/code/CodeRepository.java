@@ -57,7 +57,6 @@ public class CodeRepository {
 		if(Objects.nonNull(uprCode)) {
 			sql.append(" AND URP_CODE = '").append(uprCode).append("'");
 		}
-		System.out.println(sql.toString());
 		return client.sql(sql.toString()).fetch().all().map(Utils::converterCamelCase);
 	}
 
